@@ -31,5 +31,7 @@ namespace Blog.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<MVCBlog.Models.Post> Posts { get; set; }
     }
 }
