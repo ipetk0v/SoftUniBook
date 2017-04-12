@@ -9,6 +9,11 @@ namespace MVCBlog.Models
 {
     public class Post
     {
+        public Post()
+        {
+            this.Date = DateTime.Now;
+        }
+
         [Key]
         public int ID { get; set; }
 

@@ -2,6 +2,8 @@
     ViewBag.Title = "Home Page";
 }
 
+@model List<MVCBlog.Models.Post>
+
 <div class="col">
     <div class="col-md-2">
         <div class="">
@@ -11,34 +13,29 @@
             </p>
         </div>
     </div>
-    <article class="col-md-8">
-        <h2 class="title">Постове за потребители</h2>
-        <div class="title">
-            <p>Публикувано от Деян Велев</p>
-        </div>
-        <div>
-            Тяло на публикацията...
-            <p>Malko text dyra dura.</p>
-            <!-- LikeBtn.com BEGIN -->
-            <iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.google.bg%2Fwebhp%3Fsourceid%3Dchrome-instant%26ion%3D1%26espv%3D2%26ie%3DUTF-8%23q%3Dlike%2Bbutton%2Bhtml&width=450&layout=standard&action=like&size=large&show_faces=false&share=false&height=35&appId" width="450" height="35" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
-            <!-- LikeBtn.com END -->
-        </div>
-        
-    </article>
 
-    <article class="col-md-8">
-        <h2 class="title">Постове за потребители</h2>
-        <div class="title">
-            <p>Публикувано от Деян Велев</p>
-        </div>
-        <div>
-            Тяло на публикацията...
-            <p>Malko text dyra dura.</p>
-            <!-- LikeBtn.com BEGIN -->
-            <iframe src="https://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.coffeecup.com%2Fhelp%2Farticles%2Fadding-a-facebook-like-button-to-your-page%2F&width=450&layout=standard&action=like&size=large&show_faces=false&share=false&height=35&appId" width="450" height="35" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
-            <!-- LikeBtn.com END -->
-        </div>
-    </article>
+    <section class="row">
+        @foreach (var post in Model)
+        {
+            <article class="post col-md-6">
+                <h2 class="title">@post.Title</h2>
+                <div class="about">
+                    Публикувано
+                    @if (post.Author != null)
+                    {
+                        @:от
+                        <i>@post.Author.User (@post.Author.UserName)</i>
+                    }
+                    на <i>@post.Date</i>
+                </div>
+                <div class="body">@Html.Raw(post.Body)</div>
+            </article>
+        }
+    </section>
+
+
+        
+
 
 
     <div class="col-md-2">
