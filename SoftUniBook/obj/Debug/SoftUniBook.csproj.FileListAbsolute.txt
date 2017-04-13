@@ -162,3 +162,7 @@ D:\SoftUniBook\SoftUniBook\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 D:\SoftUniBook\SoftUniBook\obj\Debug\SoftUniBook.csprojResolveAssemblyReference.cache
 D:\SoftUniBook\SoftUniBook\obj\Debug\Blog.dll
 D:\SoftUniBook\SoftUniBook\obj\Debug\Blog.pdb
+F:\C#projects\SoftUniBook\SoftUniBook\SoftUniBook\bin\AutoMapper.dll
+F:\C#projects\SoftUniBook\SoftUniBook\SoftUniBook\bin\SoftUniBook.Models.dll
+F:\C#projects\SoftUniBook\SoftUniBook\SoftUniBook\bin\SoftUniBook.Models.pdb
+F:\C#projects\SoftUniBook\SoftUniBook\SoftUniBook\bin\AutoMapper.xml

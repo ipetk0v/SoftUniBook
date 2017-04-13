@@ -1,0 +1,10 @@
+F:\C#projects\SoftUniBook\SoftUniBook\SoftUniBook.Models\bin\Debug\SoftUniBook.Models.dll
+F:\C#projects\SoftUniBook\SoftUniBook\SoftUniBook.Models\bin\Debug\SoftUniBook.Models.pdb
+F:\C#projects\SoftUniBook\SoftUniBook\SoftUniBook.Models\obj\Debug\SoftUniBook.Models.csprojResolveAssemblyReference.cache
+F:\C#projects\SoftUniBook\SoftUniBook\SoftUniBook.Models\obj\Debug\SoftUniBook.Models.dll
+F:\C#projects\SoftUniBook\SoftUniBook\SoftUniBook.Models\obj\Debug\SoftUniBook.Models.pdb
+F:\C#projects\SoftUniBook\SoftUniBook\SoftUniBook.Models\bin\Debug\SoftUniBook.Models.dll.config
+F:\C#projects\SoftUniBook\SoftUniBook\SoftUniBook.Models\bin\Debug\EntityFramework.dll
+F:\C#projects\SoftUniBook\SoftUniBook\SoftUniBook.Models\bin\Debug\EntityFramework.SqlServer.dll
+F:\C#projects\SoftUniBook\SoftUniBook\SoftUniBook.Models\bin\Debug\EntityFramework.xml
+F:\C#projects\SoftUniBook\SoftUniBook\SoftUniBook.Models\bin\Debug\EntityFramework.SqlServer.xml

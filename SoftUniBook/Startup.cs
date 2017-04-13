@@ -1,4 +1,6 @@
-﻿using Blog.Migrations;
+﻿
+
+using Blog.Migrations;
 using Blog.Models;
 using Microsoft.Owin;
 using Owin;
@@ -11,7 +13,7 @@ namespace Blog
     {
         public void Configuration(IAppBuilder app)
         {
-            Database.SetInitializer(new MigrateDatabaseToLatestVersion<ApplicationDbContext, Configuration>());
+          Database.SetInitializer(new MigrateDatabaseToLatestVersion<ApplicationDbContext, Configuration>());
 
             ConfigureAuth(app);
         }

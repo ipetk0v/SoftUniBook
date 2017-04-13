@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoftUniBook", "SoftUniBook\SoftUniBook.csproj", "{7AC1F4E7-5693-4C5E-B6D2-DA86B886CF09}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoftUniBook.Models", "SoftUniBook.Models\SoftUniBook.Models.csproj", "{4A06561F-8611-4A7C-9C63-AA965D690456}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{7AC1F4E7-5693-4C5E-B6D2-DA86B886CF09}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7AC1F4E7-5693-4C5E-B6D2-DA86B886CF09}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7AC1F4E7-5693-4C5E-B6D2-DA86B886CF09}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A06561F-8611-4A7C-9C63-AA965D690456}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A06561F-8611-4A7C-9C63-AA965D690456}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A06561F-8611-4A7C-9C63-AA965D690456}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A06561F-8611-4A7C-9C63-AA965D690456}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

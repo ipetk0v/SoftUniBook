@@ -1,16 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using Blog.Models;
 using MVCBlog.Models;
+using Microsoft.AspNet.Identity;
 
 namespace Blog.Controllers
 {
+    [Authorize]
     public class PostsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -47,10 +45,13 @@ namespace Blog.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Title,Body,Date")] Post post)
+        public ActionResult Create([Bind(Include = "ID,Title,Body")] Post post)
         {
             if (ModelState.IsValid)
             {
+                var strCurrentUserId = User.Identity.GetUserId();
+                ApplicationUser user = this.db.Users.Find(strCurrentUserId);
+                post.Author = user;
                 db.Posts.Add(post);
                 db.SaveChanges();
                 return RedirectToAction("Index");

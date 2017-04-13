@@ -2,8 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
 
 namespace MVCBlog.Models
 {
@@ -12,6 +10,7 @@ namespace MVCBlog.Models
         public Post()
         {
             this.Date = DateTime.Now;
+            this.Comments = new HashSet<Comment>();
         }
 
         [Key]
@@ -31,5 +30,6 @@ namespace MVCBlog.Models
         public DateTime Date { get; set; }
 
         public ApplicationUser Author { get; set; }
+        public ICollection<Comment> Comments { get; set; }
     }
 }

@@ -33,9 +33,25 @@
         <dd>
             @Html.DisplayFor(model => model.Date)
         </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Comments)
+        </dt>
+        @foreach (var comment in Model.Comments)
+        {
+            <dd>
+               <p>@comment</p>
+            </dd>
+        }
+
 
     </dl>
 </div>
+
+@using (Html.BeginForm("Create", "Comments", FormMethod.Post))
+{
+<textarea name='content' id='content'></textarea><br />
+<input type='submit' value='Submit' />  
+}
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
     @Html.ActionLink("Back to List", "Index")
