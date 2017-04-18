@@ -1,23 +1,20 @@
 ﻿@using MVCBlog.Models
 @model IEnumerable<Post>
 @{
-    ViewBag.Title = "Profile";
+    ViewBag.Title = "Профил";
 }
 
-<h2>Profile</h2>
-<div class="row">
-    <div class="col">
-        <div class="col-md-8 col-lg-offset-2">
-            <div class="">
-                <h2>Профил</h2>
-                <p>
-                    Тук ще поставим профил на този, който се е логнал, ако не се е логнал, може да оставим форма за логване.
-                </p>
-            </div>
+<h2>Профил</h2>
+
+
+        <div class="col-md-2">
+           <p>
+             Тук ще поставим профил на този, който се е логнал, ако не се е логнал, може да оставим форма за логване.
+           </p>
         </div>
-    </div>
-    </div>
-    <section class="row">
+
+
+    <section class="col-md-8">
         @foreach (var post in Model)
             {
             <article class="post col-md-6 col-lg-offset-2">
@@ -33,12 +30,8 @@
                 </div>
                 <div class="body">@Html.Raw(post.Body)</div>
             </article>
-        }
+             }
     </section>
-
-
-
-
 
     <div class="col-md-2">
         <h2>Реклама</h2>
@@ -46,4 +39,3 @@
         <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
     </div>
 
-</div>
