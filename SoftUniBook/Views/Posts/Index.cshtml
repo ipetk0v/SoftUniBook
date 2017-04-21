@@ -1,45 +1,78 @@
 ﻿@model IEnumerable<MVCBlog.Models.Post>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Профил";
 }
 
-<h2>Index</h2>
+<h2>Профил</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
+
+<div class="col-md-3">
+    <p>
+        Тук ще поставим профил на този, който се е логнал, ако не се е логнал, може да оставим форма за логване.
+    </p>
+
+    <br />
+
+    <div class="form-group">
+        @Html.Label("image", "Добави профилна снимка", new {@class = "control-label col-sm-12" })
+            
+                @Html.TextBox("image",null, new {type = "file"})
+            
+    </div>
+
+
+    <br />
+
+    <p><a class="btn btn-default" href="http://localhost:49674/Manage/ChangePassword">Смени Паролата &raquo;</a></p>
+    <p><a class="btn btn-default" href="http://localhost:49674/Manage/AddPhoneNumber">Добави тел.номер &raquo;</a></p>
+    <p><a class="btn btn-default" href="http://localhost:49674/Manage/ManageLogins">ManageLogins &raquo;</a></p>
+    <p><a class="btn btn-default" href="http://localhost:49674/Manage/SetPassword">Set Password &raquo;</a></p>
+    <p><a class="btn btn-default" href="http://localhost:49674/Manage/VerifyPhoneNumber">VerifyPhoneNumber &raquo;</a></p>
+
+</div>
+
+
+    <div class="col-md-9">
+        <p>
+        <p><a class="btn btn-default" href="http://localhost:49674/Posts/Create">Създай нов пост &raquo;</a></p>
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Body)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Date)
-        </th>
-        <th></th>
-    </tr>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Title)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Body)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Date)
+                </th>
+                <th></th>
+            </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Body)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Date)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
-        </td>
-    </tr>
-}
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Body)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Date)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Редактирай", "Edit", new { id = item.ID }) |
+                        @Html.ActionLink("Детайли", "Details", new { id = item.ID }) |
+                        @Html.ActionLink("Изтрий", "Delete", new { id = item.ID })
+                    </td>
+                </tr>
+            }
 
-</table>
+        </table>
+    </div>
+
+
+

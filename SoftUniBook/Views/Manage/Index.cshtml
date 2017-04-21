@@ -7,27 +7,12 @@
 
 <p class="text-success">@ViewBag.StatusMessage</p>
 <div>
-    <div class="col-md-2">
-        <h2>Профил</h2>
+    <div class="col-md-3">
         <p>
             Тук ще поставим профил на този, който се е логнал, ако не се е логнал, може да оставим форма за логване.
         </p>
         <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
 
-
-    <div class="col-md-8">
-        <div>
-            @Html.ActionLink("Създай пост","Create","Posts")
-        </div>
-
-        <h2>Начална страница</h2>
-        <p>Тук ще се поставят всички публикации на потребителите.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-
-
-    <div class="col-md-2">
         <h4>Настройки</h4>
         <hr />
         <dl class="dl-horizontal">
@@ -50,6 +35,19 @@
                 @Html.ActionLink("Manage", "ManageLogins") ]
             </dd>
         </dl>
+    </div>
+
+    
+
+    <div>
+        @Html.ActionLink("Създай пост", "Create", "Posts")
+    </div>
+
+    <div class="col-md-9">
+
+        <h2>Начална страница</h2>
+        <p>Тук ще се поставят всички публикации на потребителите.</p>
+        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
     </div>
 
 </div>
