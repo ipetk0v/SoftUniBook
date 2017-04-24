@@ -8,6 +8,7 @@ namespace Blog.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
+            
         }
 
         protected override void Seed(Blog.Models.ApplicationDbContext context)
