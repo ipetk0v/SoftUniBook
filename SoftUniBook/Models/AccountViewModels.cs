@@ -81,9 +81,14 @@ namespace Blog.Models
         public string ConfirmPassword { get; set; }
 
         [Required]
-        [StringLength(30, ErrorMessage = "Моля въведете потребителско име!", MinimumLength = 3)]
-        [Display(Name = "Потребителско име")]
+        [StringLength(30, ErrorMessage = "Моля въведете име и фамилия!", MinimumLength = 3)]
+        [Display(Name = "Име")]
         public string User { get; set; }
+
+        //[Required]
+        //[StringLength(30, ErrorMessage = "Моля въведете фамилия!", MinimumLength = 3)]
+        //[Display(Name = "Фамилия")]
+        //public string UserSurname { get; set; }
     }
 
     public class ResetPasswordViewModel

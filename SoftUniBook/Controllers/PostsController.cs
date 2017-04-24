@@ -7,7 +7,6 @@ using MVCBlog.Models;
 using Microsoft.AspNet.Identity;
 using SoftUniBook.Models.BindingModels;
 using System;
-using Blog.Models.ViewModels;
 using System.Collections.Generic;
 
 namespace Blog.Controllers
@@ -17,13 +16,11 @@ namespace Blog.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Posts
         public ActionResult Index()
         {
             return View(db.Posts.ToList());
         }
 
-        // GET: Posts/Details/5
         [HttpGet]
         public ActionResult Details(int? id)
         {
@@ -46,9 +43,6 @@ namespace Blog.Controllers
             return View();
         }
 
-        // POST: Posts/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(AddPostBm bm)
@@ -80,7 +74,6 @@ namespace Blog.Controllers
             return View(post);
         }
 
-        // GET: Posts/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -95,9 +88,6 @@ namespace Blog.Controllers
             return View(post);
         }
 
-        // POST: Posts/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "ID,Title,Body,Date")] Post post)
@@ -110,8 +100,7 @@ namespace Blog.Controllers
             }
             return View(post);
         }
-
-        // GET: Posts/Delete/5
+ 
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -126,7 +115,6 @@ namespace Blog.Controllers
             return View(post);
         }
 
-        // POST: Posts/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

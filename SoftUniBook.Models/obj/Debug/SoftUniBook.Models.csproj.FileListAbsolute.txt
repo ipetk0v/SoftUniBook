@@ -17,3 +17,13 @@ D:\SoftUniBook\SoftUniBook\SoftUniBook.Models\bin\Debug\EntityFramework.SqlServe
 D:\SoftUniBook\SoftUniBook\SoftUniBook.Models\obj\Debug\SoftUniBook.Models.csprojResolveAssemblyReference.cache
 D:\SoftUniBook\SoftUniBook\SoftUniBook.Models\obj\Debug\SoftUniBook.Models.dll
 D:\SoftUniBook\SoftUniBook\SoftUniBook.Models\obj\Debug\SoftUniBook.Models.pdb
+C:\Users\Deyan\SoftUniBook\SoftUniBook.Models\bin\Debug\SoftUniBook.Models.dll.config
+C:\Users\Deyan\SoftUniBook\SoftUniBook.Models\bin\Debug\SoftUniBook.Models.dll
+C:\Users\Deyan\SoftUniBook\SoftUniBook.Models\bin\Debug\SoftUniBook.Models.pdb
+C:\Users\Deyan\SoftUniBook\SoftUniBook.Models\bin\Debug\EntityFramework.dll
+C:\Users\Deyan\SoftUniBook\SoftUniBook.Models\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Deyan\SoftUniBook\SoftUniBook.Models\bin\Debug\EntityFramework.xml
+C:\Users\Deyan\SoftUniBook\SoftUniBook.Models\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Deyan\SoftUniBook\SoftUniBook.Models\obj\Debug\SoftUniBook.Models.csprojResolveAssemblyReference.cache
+C:\Users\Deyan\SoftUniBook\SoftUniBook.Models\obj\Debug\SoftUniBook.Models.dll
+C:\Users\Deyan\SoftUniBook\SoftUniBook.Models\obj\Debug\SoftUniBook.Models.pdb

@@ -9,7 +9,7 @@ namespace Blog.Models
     {
 
         public ApplicationDbContext()
-            : base("DefaultConnection")
+            : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
 

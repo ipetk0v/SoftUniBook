@@ -14,7 +14,7 @@ namespace Blog.Controllers
         {
             this.db = new ApplicationDbContext();
         }
-        // GET: Comments
+
         [HttpPost]
         public ActionResult Create(AddComentBm bm)
         {
@@ -27,8 +27,8 @@ namespace Blog.Controllers
             Comment comment = new Comment
             {
                 Content = bm.Content,
-                Author=this.db.Users.Find(strCurrentUserId),
-              Post=this.db.Posts.Find(bm.Id)
+                Author = this.db.Users.Find(strCurrentUserId),
+                Post = this.db.Posts.Find(bm.Id)
             };
             post.Comments.Add(comment);
             this.db.Comments.Add(comment);

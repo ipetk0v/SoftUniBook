@@ -13,7 +13,7 @@ namespace Blog.Controllers
         {
             this.db = new ApplicationDbContext();
         }
-        // GET: Users
+
         public ActionResult Profile()
         {
             var strCurrentUserId = User.Identity.GetUserId();
