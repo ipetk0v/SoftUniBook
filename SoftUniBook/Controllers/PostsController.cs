@@ -5,6 +5,10 @@ using System.Web.Mvc;
 using Blog.Models;
 using MVCBlog.Models;
 using Microsoft.AspNet.Identity;
+using SoftUniBook.Models.BindingModels;
+using System;
+using Blog.Models.ViewModels;
+using System.Collections.Generic;
 
 namespace Blog.Controllers
 {
@@ -20,6 +24,7 @@ namespace Blog.Controllers
         }
 
         // GET: Posts/Details/5
+        [HttpGet]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -34,6 +39,7 @@ namespace Blog.Controllers
             return View(post);
         }
 
+
         // GET: Posts/Create
         public ActionResult Create()
         {
@@ -45,13 +51,27 @@ namespace Blog.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Title,Body")] Post post)
+        public ActionResult Create(AddPostBm bm)
         {
+            var strCurrentUserId = User.Identity.GetUserId();
+
+            ApplicationUser user = this.db.Users.Find(strCurrentUserId);
+            List<Tag> tags = new List<Tag>();
+            foreach (var tag in bm.Tags.Split(new[] { ' ',',' }))
+            {
+                tags.Add(new Tag() { Title = tag });
+            }
+            var post = new Post
+            {
+                Author = user,
+                Date = DateTime.Now,
+                Tags= tags,
+                Body = bm.Body,
+                Title = bm.Title
+            };
             if (ModelState.IsValid)
             {
-                var strCurrentUserId = User.Identity.GetUserId();
-                ApplicationUser user = this.db.Users.Find(strCurrentUserId);
-                post.Author = user;
+
                 db.Posts.Add(post);
                 db.SaveChanges();
                 return RedirectToAction("Index");

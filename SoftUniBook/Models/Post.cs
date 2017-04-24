@@ -11,6 +11,7 @@ namespace MVCBlog.Models
         {
             this.Date = DateTime.Now;
             this.Comments = new HashSet<Comment>();
+            this.Tags = new HashSet<Tag>();
         }
 
         [Key]
@@ -30,6 +31,8 @@ namespace MVCBlog.Models
         public DateTime Date { get; set; }
 
         public ApplicationUser Author { get; set; }
-        public ICollection<Comment> Comments { get; set; }
+        public virtual Category Category { get; set; }
+        public virtual IEnumerable<Tag> Tags { get; set; }
+        public virtual ICollection<Comment> Comments { get; set; }
     }
 }

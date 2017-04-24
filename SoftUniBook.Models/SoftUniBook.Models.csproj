@@ -49,11 +49,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BindingModels\AddComentBm.cs" />
+    <Compile Include="BindingModels\AddPostBm.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\Category\CategoryVm.cs" />
     <Compile Include="ViewModels\Users\PostVm.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="BindingModels\" />
     <Folder Include="EntityModels\" />
   </ItemGroup>
   <ItemGroup>

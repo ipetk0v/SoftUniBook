@@ -4,6 +4,7 @@
     ViewBag.Title = "Details";
 }
 
+<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
 <h2>Details</h2>
 
 <div>
@@ -36,21 +37,48 @@
         <dt>
             @Html.DisplayNameFor(model => model.Comments)
         </dt>
-        @foreach (var comment in Model.Comments)
-        {
-            <dd>
-               <p>@comment</p>
-            </dd>
-        }
 
+        <dd>
+            @Html.DisplayFor(model => model.Tags)
+        </dd>
+    @foreach (var tag in Model.Tags)
+    {
+        @Html.ActionLink(tag.Title,"Tag")
+    }
+    </dl><div class="container">
+        
+            @foreach (var comment in Model.Comments)
+            {
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="panel panel-white post panel-shadow">
+                            <div class="post-heading">
+                                <div class="pull-left meta">
+                                    <div class="title h5">
+                                        <b>@comment.Author.UserName</b>
+                                        made a comment.
+                                    </div><div class="post-description">
+                                        <p>@comment.Content</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
 
-    </dl>
+    </div>
+
 </div>
 
 @using (Html.BeginForm("Create", "Comments", FormMethod.Post))
 {
-<textarea name='content' id='content'></textarea><br />
-<input type='submit' value='Submit' />  
+    <input type="hidden" name="id" value=@Model.ID>
+    <div class="form-group">
+        <label for="inputlg">Add comment</label>
+        <input class="form-control input-lg" name="content" type="text">
+    </div>
+    <input type='submit' value='Submit' class="btn btn-primary" />
 }
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
