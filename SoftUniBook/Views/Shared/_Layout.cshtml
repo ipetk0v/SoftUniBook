@@ -33,24 +33,25 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Начало", "Index", "Home")</li>
-                        
+
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
-
-
         </div>
     </div>
     <div class="container body-content">
         @RenderBody()
         <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - SoftUniBook</p>
-        </footer>
+        <br />
+       
     </div>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+    
 </body>
+ <footer>
+            <p>&copy; @DateTime.Now.Year - SoftUniBook</p>
+        </footer>
 </html>

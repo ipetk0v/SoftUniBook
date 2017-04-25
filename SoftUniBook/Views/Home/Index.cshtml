@@ -8,21 +8,20 @@
 <div class="col">
     <div class="col-md-2">
         <div class="">
-            <h2>
-                @if (User.Identity.IsAuthenticated)
-                {
-                    @HttpContext.Current.User.Identity.Name.ToString()
-                }
-                else
-                {
-                    
-                    //@Html.ActionLink("Регистрирай нов потребител", "Register")
-                }
 
-            </h2>
-            <p>
-                
-            </p>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <h2>@HttpContext.Current.User.Identity.Name.ToString()</h2>
+
+            }
+            else
+            {
+                <br />
+                    <div>
+                        <img class="img" src="http://paidtoblog.co/wp-content/themes/genesis-sample/images/icons/exclusive-articles.png" alt="" style="vertical-align:text-bottom">
+                    </div>
+                    <a class="btn btn-primary" href="http://localhost:49674/Account/Register">Нямаш профил?<br />Присъидини се към нас</a>
+            }
         </div>
     </div>
 </div>
@@ -37,7 +36,7 @@
                 @if (post.Author != null)
                 {
                     @:от
-                    <i>@post.Author.User (@post.Author.UserName)</i>
+                    <i>@post.Author.User (@post.Author.User)</i>
                 }
                 на <i>@post.Date</i>
             </div>
