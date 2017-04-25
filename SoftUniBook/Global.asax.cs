@@ -1,11 +1,11 @@
-﻿using Blog.Migrations;
-using Blog.Models;
+﻿using SoftUniBook.Migrations;
+using SoftUniBook.Models;
 using System.Data.Entity;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 
-namespace Blog
+namespace SoftUniBook
 {
     public class MvcApplication : System.Web.HttpApplication
     {

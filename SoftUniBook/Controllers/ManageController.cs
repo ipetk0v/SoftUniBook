@@ -5,9 +5,10 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using Blog.Models;
+using SoftUniBook.Models;
+using System.Data.Entity;
 
-namespace Blog.Controllers
+namespace SoftUniBook.Controllers
 {
     [Authorize]
     public class ManageController : Controller
@@ -282,6 +283,16 @@ namespace Blog.Controllers
             }
             var result = await UserManager.AddLoginAsync(User.Identity.GetUserId(), loginInfo.Login);
             return result.Succeeded ? RedirectToAction("ManageLogins") : RedirectToAction("ManageLogins", new { Message = ManageMessageId.Error });
+        }
+
+        public ActionResult Profile()
+        {
+            var db = new ApplicationDbContext();
+
+            var currentUserId = User.Identity.GetUserId();
+            var user = db.Users.Include(a => a.Posts).FirstOrDefault(a => a.Id == currentUserId);
+
+            return View(user);
         }
 
         protected override void Dispose(bool disposing)

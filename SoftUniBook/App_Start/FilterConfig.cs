@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace Blog
+namespace SoftUniBook
 {
     public class FilterConfig
     {

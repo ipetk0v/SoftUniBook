@@ -1,11 +1,11 @@
-﻿using Blog.Models;
+﻿using SoftUniBook.Models;
 using Microsoft.AspNet.Identity;
-using MVCBlog.Models;
+using SoftUniBook.Models;
 using SoftUniBook.Models.BindingModels;
 using System.Net;
 using System.Web.Mvc;
 
-namespace Blog.Controllers
+namespace SoftUniBook.Controllers
 {
     public class CommentsController : Controller
     {
@@ -33,7 +33,7 @@ namespace Blog.Controllers
             post.Comments.Add(comment);
             this.db.Comments.Add(comment);
             this.db.SaveChanges();
-            return Redirect($"/posts/details/{post.ID}");
+            return Redirect($"/posts/details/{post.Id}");
         }
     }
 }

@@ -1,11 +1,11 @@
-﻿using Blog.Models;
+﻿using SoftUniBook.Models;
 using System.Linq;
 using System.Web.Mvc;
 using System.Data.Entity;
-using MVCBlog.Models;
+using SoftUniBook.Models;
 using System.Collections.Generic;
 
-namespace Blog.Controllers
+namespace SoftUniBook.Controllers
 {
     public class HomeController : Controller
     {

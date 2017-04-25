@@ -5,9 +5,9 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using Blog.Models;
+using SoftUniBook.Models;
 
-namespace Blog.Controllers
+namespace SoftUniBook.Controllers
 {
     [Authorize]
     public class AccountController : Controller
@@ -134,7 +134,7 @@ namespace Blog.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.User, Email = model.Email };
+                var user = new ApplicationUser { UserName = model.FullName, Email = model.Email };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

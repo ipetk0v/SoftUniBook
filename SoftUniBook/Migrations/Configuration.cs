@@ -1,9 +1,9 @@
-namespace Blog.Migrations
+namespace SoftUniBook.Migrations
 {
     using Models;
     using System.Data.Entity.Migrations;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<Blog.Models.ApplicationDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<SoftUniBook.Models.ApplicationDbContext>
     {
         public Configuration()
         {
@@ -11,7 +11,7 @@ namespace Blog.Migrations
             AutomaticMigrationDataLossAllowed = true;          
         }
 
-        protected override void Seed(Blog.Models.ApplicationDbContext context)
+        protected override void Seed(SoftUniBook.Models.ApplicationDbContext context)
         {
              context.Categories.AddOrUpdate(
                p => p.Title,

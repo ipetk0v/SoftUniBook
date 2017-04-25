@@ -1,9 +1,9 @@
-﻿using Blog.Models;
+﻿using SoftUniBook.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace MVCBlog.Models
+namespace SoftUniBook.Models
 {
     public class Post
     {
@@ -15,7 +15,7 @@ namespace MVCBlog.Models
         }
 
         [Key]
-        public int ID { get; set; }
+        public int Id { get; set; }
 
         [Required]
         [StringLength(200)]
@@ -26,13 +26,13 @@ namespace MVCBlog.Models
         [Display(Name = "Съдържание")]
         public string Body { get; set; }
         
-        [Required]
         [Display(Name = "Дата")]
         public DateTime Date { get; set; }
 
+        public string AuthorId { get; set; }
         public ApplicationUser Author { get; set; }
         public virtual Category Category { get; set; }
-        public virtual IEnumerable<Tag> Tags { get; set; }
+        public virtual ICollection<Tag> Tags { get; set; }
         public virtual ICollection<Comment> Comments { get; set; }
     }
 }

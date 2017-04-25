@@ -1,8 +1,8 @@
 ﻿using System.Data.Entity;
 using Microsoft.AspNet.Identity.EntityFramework;
-using MVCBlog.Models;
+using SoftUniBook.Models;
 
-namespace Blog.Models
+namespace SoftUniBook.Models
 {
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>

@@ -1,7 +1,7 @@
-﻿using MVCBlog.Models;
+﻿using SoftUniBook.Models;
 using System.Collections.Generic;
 
-namespace Blog.Models
+namespace SoftUniBook.Models
 {
     public class Category
     {

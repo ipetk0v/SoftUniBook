@@ -3,7 +3,7 @@
 }
 
 
-@model List<MVCBlog.Models.Post>
+@model List<SoftUniBook.Models.Post>
 
 <div class="col">
     <div class="col-md-2">
@@ -36,7 +36,7 @@
                 @if (post.Author != null)
                 {
                     @:от
-                    <i>@post.Author.User (@post.Author.User)</i>
+                    <i>@post.Author.Email (@post.Author.FullName)</i>
                 }
                 на <i>@post.Date</i>
             </div>

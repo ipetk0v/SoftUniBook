@@ -1,13 +1,13 @@
 ﻿
 
-using Blog.Migrations;
-using Blog.Models;
+using SoftUniBook.Migrations;
+using SoftUniBook.Models;
 using Microsoft.Owin;
 using Owin;
 using System.Data.Entity;
 
-[assembly: OwinStartupAttribute(typeof(Blog.Startup))]
-namespace Blog
+[assembly: OwinStartupAttribute(typeof(SoftUniBook.Startup))]
+namespace SoftUniBook
 {
     public partial class Startup
     {

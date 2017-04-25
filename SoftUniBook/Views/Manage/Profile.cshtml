@@ -1,0 +1,142 @@
+﻿@model SoftUniBook.Models.ApplicationUser
+
+@{
+    ViewBag.Title = "Профил";
+}
+
+<h2>Профил</h2>
+
+<br />
+<div class="col-md-3">
+
+    <div class="form-group">
+        @Html.Label("image", "Добави профилна снимка", new { enctype = "multipart/form-date", @class = "control-label col-sm-12" })
+
+        @Html.TextBox("image", null, new { type = "file" })
+
+    </div>
+
+
+    <br />
+
+    <p><a class="btn btn-primary" href="http://localhost:49674/Manage/ChangePassword">Смени Паролата</a></p>
+    <p><a class="btn btn-primary" href="http://localhost:49674/Manage/AddPhoneNumber">Добави тел.номер</a></p>
+
+</div>
+
+
+<div class="col-md-9">
+
+    <h2>@HttpContext.Current.User.Identity.Name.ToString()</h2>
+    <div class="dropdown">
+        Години
+        <button class="dropdown-toggle btn btn-primary " type="button" data-toggle="dropdown">
+            Избери
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+            <li><a href="#">18</a></li>
+            <li><a href="#">19</a></li>
+            <li><a href="#">20</a></li>
+            <li><a href="#">21</a></li>
+        </ul>
+    </div>
+    <p>Пол:</p>
+    <p>Град:</p>
+    <p>За мен:</p>
+
+    <br />
+
+    <p><a class="btn btn-primary" href="http://localhost:49674/Posts/Create">Създай нов пост &raquo;</a></p>
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Posts.First().Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Posts.First().Body)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Posts.First().Date)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model.Posts)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Body)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td>
+                    @Html.ActionLink("Редактирай", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Детайли", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Изтрий", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+
+
+@*@model SoftUniBook.Models.IndexViewModel
+@{
+    ViewBag.Title = "Профил";
+}
+
+<h2>@ViewBag.Title.</h2>
+
+<p class="text-success">@ViewBag.StatusMessage</p>
+<div>
+    <div class="col-md-3">
+        <p>
+            Тук ще поставим профил на този, който се е логнал, ако не се е логнал, може да оставим форма за логване.
+        </p>
+        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+
+        <h4>Настройки</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>Парола:</dt>
+            <dd>
+                [
+                @if (Model.HasPassword)
+            {
+                    @Html.ActionLink("Смени паролата", "ChangePassword")
+                }
+                else
+                {
+                    @Html.ActionLink("Create", "SetPassword")
+                }
+                ]
+            </dd>
+            <dt>External Logins:</dt>
+            <dd>
+                @Model.Logins.Count [
+                @Html.ActionLink("Manage", "ManageLogins") ]
+            </dd>
+        </dl>
+    </div>
+
+    
+
+    <div>
+        @Html.ActionLink("Създай пост", "Create", "Posts")
+    </div>
+
+    <div class="col-md-9">
+
+        <h2>Начална страница</h2>
+        <p>Тук ще се поставят всички публикации на потребителите.</p>
+        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+    </div>
+
+</div>*@

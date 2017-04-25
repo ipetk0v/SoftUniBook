@@ -4,9 +4,9 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Owin;
-using Blog.Models;
+using SoftUniBook.Models;
 
-namespace Blog
+namespace SoftUniBook
 {
     public partial class Startup
     {

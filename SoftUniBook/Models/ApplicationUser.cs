@@ -2,14 +2,19 @@
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using System.Collections.Generic;
 
-namespace Blog.Models
+namespace SoftUniBook.Models
 {
     public class ApplicationUser : IdentityUser
     {
-        public string User { get; set; }
+        public string FullName { get; set; }
 
-        public string ImagePath { get; set; }
+        public string ProfileImagePath { get; set; }
+
+        public string City { get; set; }
+
+        public ICollection<Post> Posts { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {

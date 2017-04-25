@@ -1,11 +1,10 @@
-﻿using MVCBlog.Models;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
-namespace Blog.Models.ViewModels
-{
+namespace SoftUniBook.Models.ViewModels
+{ 
     public class AddPostVm
     {
-        public IEnumerable<Category> Categories { get; set; }
+        public IEnumerable<Models.Category> Categories { get; set; }
         public Post Post { get; set; }
     }
 }

@@ -1,10 +1,11 @@
-﻿using Blog.Models;
-using MVCBlog.Models;
+﻿using SoftUniBook.Models;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
-namespace Blog.Controllers
+using System.Data.Entity;
+
+namespace SoftUniBook.Controllers
 {
     public class UsersController : Controller
     {
@@ -14,11 +15,6 @@ namespace Blog.Controllers
             this.db = new ApplicationDbContext();
         }
 
-        public ActionResult Profile()
-        {
-            var strCurrentUserId = User.Identity.GetUserId();
-            IEnumerable<Post> posts = this.db.Posts.Where(p => p.Author.Id == strCurrentUserId);
-            return View(posts);
-        }
+        
     }
 }

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace Blog.Models
+namespace SoftUniBook.Models
 {
     public class ExternalLoginConfirmationViewModel
     {
@@ -83,7 +83,7 @@ namespace Blog.Models
         [Required]
         [StringLength(30, ErrorMessage = "Моля въведете име и фамилия!", MinimumLength = 3)]
         [Display(Name = "Име")]
-        public string User { get; set; }
+        public string FullName { get; set; }
 
         //[Required]
         //[StringLength(30, ErrorMessage = "Моля въведете фамилия!", MinimumLength = 3)]

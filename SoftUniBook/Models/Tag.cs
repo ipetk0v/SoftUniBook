@@ -1,6 +1,6 @@
-﻿using MVCBlog.Models;
+﻿using SoftUniBook.Models;
 using System.ComponentModel.DataAnnotations;
-namespace Blog.Models
+namespace SoftUniBook.Models
 {
     public class Tag
     {

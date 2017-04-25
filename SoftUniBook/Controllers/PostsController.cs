@@ -2,14 +2,14 @@
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
-using Blog.Models;
-using MVCBlog.Models;
+using SoftUniBook.Models;
+using SoftUniBook.Models;
 using Microsoft.AspNet.Identity;
 using SoftUniBook.Models.BindingModels;
 using System;
 using System.Collections.Generic;
 
-namespace Blog.Controllers
+namespace SoftUniBook.Controllers
 {
     [Authorize]
     public class PostsController : Controller
@@ -18,7 +18,9 @@ namespace Blog.Controllers
 
         public ActionResult Index()
         {
-            return View(db.Posts.ToList());
+            var posts = db.Posts.ToList();
+
+            return View(posts);
         }
 
         [HttpGet]
@@ -51,7 +53,7 @@ namespace Blog.Controllers
 
             ApplicationUser user = this.db.Users.Find(strCurrentUserId);
             List<Tag> tags = new List<Tag>();
-            foreach (var tag in bm.Tags.Split(new[] { ' ',',' }))
+            foreach (var tag in bm.Tags.Split(new[] { ' ',',' }, StringSplitOptions.RemoveEmptyEntries))
             {
                 tags.Add(new Tag() { Title = tag });
             }
@@ -67,7 +69,16 @@ namespace Blog.Controllers
             {
 
                 db.Posts.Add(post);
-                db.SaveChanges();
+
+                try
+                {
+                    db.SaveChanges();
+
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine();
+                }
                 return RedirectToAction("Index");
             }
 
@@ -133,5 +144,8 @@ namespace Blog.Controllers
             }
             base.Dispose(disposing);
         }
+
+
+
     }
 }
