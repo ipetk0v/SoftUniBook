@@ -6,13 +6,8 @@
 
 <h2>Профил</h2>
 
-
+<br />
 <div class="col-md-3">
-    <p>
-        Тук ще поставим профил на този, който се е логнал, ако не се е логнал, може да оставим форма за логване.
-    </p>
-
-    <br />
 
     <div class="form-group">
         @Html.Label("image", "Добави профилна снимка", new {@class = "control-label col-sm-12" })
@@ -24,19 +19,37 @@
 
     <br />
 
-    <p><a class="btn btn-default" href="http://localhost:49674/Manage/ChangePassword">Смени Паролата &raquo;</a></p>
-    <p><a class="btn btn-default" href="http://localhost:49674/Manage/AddPhoneNumber">Добави тел.номер &raquo;</a></p>
-    <p><a class="btn btn-default" href="http://localhost:49674/Manage/ManageLogins">ManageLogins &raquo;</a></p>
-    <p><a class="btn btn-default" href="http://localhost:49674/Manage/SetPassword">Set Password &raquo;</a></p>
-    <p><a class="btn btn-default" href="http://localhost:49674/Manage/VerifyPhoneNumber">VerifyPhoneNumber &raquo;</a></p>
+    <p><a class="btn btn-primary" href="http://localhost:49674/Manage/ChangePassword">Смени Паролата</a></p>
+    <p><a class="btn btn-primary" href="http://localhost:49674/Manage/AddPhoneNumber">Добави тел.номер</a></p>
+    <p><a class="btn btn-primary" href="http://localhost:49674/Manage/ManageLogins">ManageLogins</a></p>
+    <p><a class="btn btn-primary" href="http://localhost:49674/Manage/SetPassword">Set Password</a></p>
+    <p><a class="btn btn-primary" href="http://localhost:49674/Manage/VerifyPhoneNumber">VerifyPhoneNumber</a></p>
 
 </div>
 
 
     <div class="col-md-9">
-        <p>
-        <p><a class="btn btn-default" href="http://localhost:49674/Posts/Create">Създай нов пост &raquo;</a></p>
-</p>
+        
+        <h2>@HttpContext.Current.User.Identity.Name.ToString()</h2>
+        <div class="dropdown">Години
+            <button class="dropdown-toggle btn btn-primary " type="button" data-toggle="dropdown">
+                Избери
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+                <li><a href="#">18</a></li>
+                <li><a href="#">19</a></li>
+                <li><a href="#">20</a></li>
+                <li><a href="#">21</a></li>
+            </ul></div>
+        <p>Пол:</p>
+        <p>Град:</p>
+        <p>За мен:</p>
+
+        <br />
+
+        <p><a class="btn btn-primary" href="http://localhost:49674/Posts/Create">Създай нов пост &raquo;</a></p>
+
         <table class="table">
             <tr>
                 <th>
