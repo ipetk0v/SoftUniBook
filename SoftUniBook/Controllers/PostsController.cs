@@ -84,7 +84,7 @@ namespace SoftUniBook.Controllers
 
             return View(post);
         }
-
+        [HttpGet]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -101,15 +101,17 @@ namespace SoftUniBook.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Title,Body,Date")] Post post)
+        public ActionResult Edit( Post model)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(post).State = EntityState.Modified;
+                var post = db.Posts.Find(model.Id);
+                post.Title = model.Title;
+                post.Body = model.Body;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Details", new { id = post.Id });
             }
-            return View(post);
+            return View(model);
         }
  
         public ActionResult Delete(int? id)
@@ -131,6 +133,10 @@ namespace SoftUniBook.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Post post = db.Posts.Find(id);
+            foreach (var item in post.Tags)
+            {
+                item.Post = null;
+            }
             db.Posts.Remove(post);
             db.SaveChanges();
             return RedirectToAction("Index");

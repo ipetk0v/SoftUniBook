@@ -76,9 +76,9 @@
                     @Html.DisplayFor(modelItem => item.Date)
                 </td>
                 <td>
-                    @Html.ActionLink("Редактирай", "Edit", new { id = item.Id }) |
-                    @Html.ActionLink("Детайли", "Details", new { id = item.Id }) |
-                    @Html.ActionLink("Изтрий", "Delete", new { id = item.Id })
+                    @Html.ActionLink("Редактирай", "Edit", "Posts", new { id = item.Id }, null) |
+                    @Html.ActionLink("Детайли", "Details", "Posts", new { id = item.Id }, null) |
+                    @Html.ActionLink("Изтрий", "Delete", "Posts", new { id = item.Id }, null)
                 </td>
             </tr>
         }

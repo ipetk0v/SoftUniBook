@@ -5,10 +5,10 @@
 }
 
 <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
-<h2>Details</h2>
+<h2>Детайли</h2>
 
 <div>
-    <h4>Post</h4>
+    <h4>на пост</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -56,7 +56,7 @@
                                 <div class="pull-left meta">
                                     <div class="title h5">
                                         <b>@comment.Author.UserName</b>
-                                        made a comment.
+                                        добави коментар.
                                     </div><div class="post-description">
                                         <p>@comment.Content</p>
                                     </div>
@@ -73,14 +73,14 @@
 
 @using (Html.BeginForm("Create", "Comments", FormMethod.Post))
 {
-    <input type="hidden" name="id" value=@Model.ID>
+    <input type="hidden" name="id" value=@Model.Id>
     <div class="form-group">
-        <label for="inputlg">Add comment</label>
+        <label for="inputlg">Напиши коментар</label>
         <input class="form-control input-lg" name="content" type="text">
     </div>
-    <input type='submit' value='Submit' class="btn btn-primary" />
+    <input type='submit' value='Добави!' class="btn btn-primary" />
 }
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Редактирай", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Обратно в профила", "Profile", "Manage", new { id = Model.Id }, null)
 </p>
