@@ -1,5 +1,5 @@
 ﻿@model SoftUniBook.Models.Post
-
+@using Microsoft.AspNet.Identity
 @{
     ViewBag.Title = "Details";
 }
@@ -81,6 +81,9 @@
     <input type='submit' value='Добави!' class="btn btn-primary" />
 }
 <p>
-    @Html.ActionLink("Редактирай", "Edit", new { id = Model.Id }) |
+    @if (User.Identity.IsAuthenticated && (User.IsInRole("Admin") || Model.IsAuthor(User.Identity.GetUserId())))
+    {
+        @Html.ActionLink("Редактирай", "Edit", new { id = Model.Id })
+    } |
     @Html.ActionLink("Обратно в профила", "Profile", "Manage", new { id = Model.Id }, null)
 </p>

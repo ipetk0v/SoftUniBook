@@ -91,7 +91,7 @@ namespace SoftUniBook.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Post post = db.Posts.Find(id);
-            if (post == null)
+            if (post == null || !IsAuthorized(post))
             {
                 return HttpNotFound();
             }
@@ -105,6 +105,10 @@ namespace SoftUniBook.Controllers
             if (ModelState.IsValid)
             {
                 var post = db.Posts.Find(model.Id);
+                if(post == null || !IsAuthorized(post))
+                {
+                    return HttpNotFound();
+                }
                 post.Title = model.Title;
                 post.Body = model.Body;
                 db.SaveChanges();
@@ -120,7 +124,7 @@ namespace SoftUniBook.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Post post = db.Posts.Find(id);
-            if (post == null)
+            if (post == null || !IsAuthorized(post))
             {
                 return HttpNotFound();
             }
@@ -132,6 +136,10 @@ namespace SoftUniBook.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Post post = db.Posts.Find(id);
+            if(post == null || !IsAuthorized(post))
+            {
+                return HttpNotFound();
+            }
             foreach (var item in post.Tags)
             {
                 item.Post = null;
@@ -150,7 +158,14 @@ namespace SoftUniBook.Controllers
             base.Dispose(disposing);
         }
 
-
+        private bool IsAuthorized(Post post)
+        {
+            var isAdmin = this.User.IsInRole("Admin");
+            var isAuthor = post.IsAuthor(this.User.Identity.GetUserId());
+           
+            return isAdmin || isAuthor;
+        }
+        // dai da tyka li si
 
     }
 }

@@ -31,6 +31,10 @@ namespace SoftUniBook.Models
 
         public string AuthorId { get; set; }
         public ApplicationUser Author { get; set; }
+        public bool IsAuthor(string authorId)
+        {
+            return this.AuthorId == authorId;
+        }
         public virtual Category Category { get; set; }
         public virtual ICollection<Tag> Tags { get; set; }
         public virtual ICollection<Comment> Comments { get; set; }

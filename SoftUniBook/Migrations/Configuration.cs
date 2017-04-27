@@ -1,5 +1,6 @@
 namespace SoftUniBook.Migrations
 {
+    using Microsoft.AspNet.Identity.EntityFramework;
     using Models;
     using System.Data.Entity.Migrations;
 
@@ -13,17 +14,7 @@ namespace SoftUniBook.Migrations
 
         protected override void Seed(SoftUniBook.Models.ApplicationDbContext context)
         {
-             context.Categories.AddOrUpdate(
-               p => p.Title,
-               new Category[]
-               {
-                   new Category{ Title = "Php" },
-                   new Category{ Title = "C#" },
-                   new Category{ Title = "Java" },
-                   new Category{ Title = "JavaScript" }
-               } 
-             );
-             
+            
         }
     }
 }
