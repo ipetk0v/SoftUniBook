@@ -31,6 +31,9 @@
 </div>
 
 <section class="col-md-7">
+
+    <h1 style="text-align:center;">Последни постове</h1>
+
     @foreach (var post in Model)
             {
         <article class="post col-md-6 col-lg-offset-2">
@@ -40,25 +43,30 @@
                 @if (post.Author != null)
                 {
                     @:от
-                                                 <i>@post.Author.Email (@post.Author.FullName)</i>
+                    <i>@post.Author.Email (@post.Author.FullName)</i>
                 }
                 на <i>@post.Date</i>
             </div>
             <div class="body">@Html.Raw(post.Body)</div>
         </article>
     }
+
+    <p><a class="btn btn-primary" href="http://localhost:49674/Posts/Create">Създай нов пост &raquo;</a></p>
 </section>
+
 
 <div class="col">
     <div class="col-md-2">
         <div class="">
             <h2>Реклама</h2>
 
-            <img src="http://www.box.bg/ads/www/images/29d8439ac9e37c5df07e2d53cc5e56c4.jpg" width="300" height="250" alt="" title="" border="0">
+            <a href="http://www.box.bg/ads/www/delivery/ck.php?oaparams=2__bannerid=2226__zoneid=84__cb=6139da35da__oadest=http%3A%2F%2Fwww.cars.bg%2F%3Fgo%3Dcatalogue" target="_blank"><img src="http://www.box.bg/ads/www/images/1dff51624c9138797375ebaf261f32ce.jpg" width="300" height="250" alt="" title="" border="0"></a>
             <br />
-            <img src="http://www.box.bg/ads/www/images/01cd97a740ef269840aba22926cd6654.jpg" width="300" height="250" alt="" title="" border="0">
+            <a href="http://www.box.bg/ads/www/delivery/ck.php?oaparams=2__bannerid=981__zoneid=84__cb=ac5cd97df4__oadest=http%3A%2F%2Fwww.courses.bg" target="_blank"><img src="http://www.box.bg/ads/www/images/01cd97a740ef269840aba22926cd6654.jpg" width="300" height="250" alt="" title="" border="0"></a>
             <br />
-            <img src="http://www.box.bg/ads/www/images/1dff51624c9138797375ebaf261f32ce.jpg" width="300" height="250" alt="" title="" border="0">
+            <a href="http://www.box.bg/ads/www/delivery/ck.php?oaparams=2__bannerid=879__zoneid=84__cb=f36c836539__oadest=http%3A%2F%2Fwww.homes.bg" target="_blank"><img src="http://www.box.bg/ads/www/images/e766d257204d1a0000aad198e926f88a.jpg" width="300" height="250" alt="" title="" border="0"></a>
+            <br />
+            <a href="http://www.box.bg/ads/www/delivery/ck.php?oaparams=2__bannerid=2493__zoneid=84__cb=0789ca00c9__oadest=http%3A%2F%2Fwww.jobs.bg%2Fpremium_jobs.php%3Farea%3Dinnovation%26r%3D50" target="_blank"><img src="http://www.box.bg/ads/www/images/29d8439ac9e37c5df07e2d53cc5e56c4.jpg" width="300" height="250" alt="" title="" border="0"></a>
         </div>
         
     </div>
