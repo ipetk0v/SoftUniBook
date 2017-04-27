@@ -7,6 +7,8 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using SoftUniBook.Models;
 using System.Data.Entity;
+using System.IO;
+using System.Web.Hosting;
 
 namespace SoftUniBook.Controllers
 {
@@ -53,12 +55,14 @@ namespace SoftUniBook.Controllers
         public async Task<ActionResult> Index(ManageMessageId? message)
         {
             ViewBag.StatusMessage =
-                message == ManageMessageId.ChangePasswordSuccess ? "Your password has been changed."
+                message == ManageMessageId.ChangePasswordSuccess ? "Вашата парола е сменена"
                 : message == ManageMessageId.SetPasswordSuccess ? "Your password has been set."
                 : message == ManageMessageId.SetTwoFactorSuccess ? "Your two-factor authentication provider has been set."
                 : message == ManageMessageId.Error ? "An error has occurred."
                 : message == ManageMessageId.AddPhoneSuccess ? "Your phone number was added."
                 : message == ManageMessageId.RemovePhoneSuccess ? "Your phone number was removed."
+                : message == ManageMessageId.PhotoUploadSucess ? "Успешно качена Профилна снимка"
+                : message == ManageMessageId.FileExtensionError ? "Невалиден формат на файла"
                 : "";
 
             var userId = User.Identity.GetUserId();
@@ -306,6 +310,35 @@ namespace SoftUniBook.Controllers
             base.Dispose(disposing);
         }
 
+        [HttpPost]
+        public async Task<ActionResult> UploadPhoto(HttpPostedFileBase file)
+        {
+            if (file != null && file.ContentLength > 0)
+            {
+                var user = await GetCurrentUserAsync();
+                var username = user.UserName;
+                var fileExt = Path.GetExtension(file.FileName);
+                var fnm = username + ".png";
+                if (fileExt.ToLower().EndsWith(".png") || fileExt.ToLower().EndsWith(".jpg") || fileExt.ToLower().EndsWith(".jpeg"))
+                {
+                    var filePath = HostingEnvironment.MapPath("~/Content/Pics/") + fnm;
+                    var directory = new DirectoryInfo(HostingEnvironment.MapPath("~/Content/Pics/"));
+                    if (directory.Exists == false)
+                    {
+                        directory.Create();
+                    }
+                    ViewBag.FilePath = filePath.ToString();
+                    file.SaveAs(filePath);
+                    return RedirectToAction("Profile", new { Massage = ManageMessageId.PhotoUploadSucess });
+                }
+                else
+                {
+                    return RedirectToAction("Profile", new { Massage = ManageMessageId.FileExtensionError });
+                }
+            }
+            return RedirectToAction("Profile", new { Massage = ManageMessageId.Error });
+        }
+
 #region Helpers
         // Used for XSRF protection when adding external logins
         private const string XsrfKey = "XsrfId";
@@ -346,6 +379,12 @@ namespace SoftUniBook.Controllers
             return false;
         }
 
+        private async Task<ApplicationUser> GetCurrentUserAsync()
+        {
+            return await UserManager.FindByIdAsync(User.Identity.GetUserId());
+        }
+
+        
         public enum ManageMessageId
         {
             AddPhoneSuccess,
@@ -354,7 +393,10 @@ namespace SoftUniBook.Controllers
             SetPasswordSuccess,
             RemoveLoginSuccess,
             RemovePhoneSuccess,
-            Error
+            Error,
+            PhotoUploadSucess,
+            FileExtensionError
+
         }
 
 #endregion
