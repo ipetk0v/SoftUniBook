@@ -22,7 +22,7 @@
                 <div class="mngimg">
                     @using (Html.BeginForm("UploadPhoto", "Manage", FormMethod.Post, new { enctype = "multipart/form-data" }))
                     {
-                        <div class="btn btn-default browseimg">
+                        <div class="btn btn-link browseimg col-md-11">
                             <input type="file" name="file" id="files" onchange="this.form.submit()" />
                         </div>
                     }
@@ -43,28 +43,31 @@
 <div class="col-md-9">
 
     <h2>@HttpContext.Current.User.Identity.Name.ToString()</h2>
-    <div class="dropdown">
-        Години
-        <button class="dropdown-toggle btn btn-primary " type="button" data-toggle="dropdown">
-            Избери
-            <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu">
-            <li><a href="#">18</a></li>
-            <li><a href="#">19</a></li>
-            <li><a href="#">20</a></li>
-            <li><a href="#">21</a></li>
-        </ul>
-    </div>
-    <p>Пол:</p>
-    <p>Град:</p>
-    <p>За мен:</p>
+
+    <table class="table">
+        <tr>
+            <th>
+                Години
+            </th>
+            <th>
+                Град
+            </th>
+            <th>
+                Пол
+            </th>
+            <th>
+                Статус
+            </th>
+        </tr>
+
+    </table>
 
     <br />
 
-    <p><a class="btn btn-primary" href="http://localhost:49674/Posts/Create">Създай нов пост &raquo;</a></p>
+
 
     <table class="table">
+        <p><a class="btn btn-primary" href="http://localhost:49674/Posts/Create">Създай нов пост &raquo;</a></p>
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Posts.First().Title)
