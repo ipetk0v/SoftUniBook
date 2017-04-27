@@ -1,10 +1,8 @@
-﻿@{
+﻿@model List<SoftUniBook.Models.Post>
+
+@{
     ViewBag.Title = "Home Page";
 }
-
-
-@model List<SoftUniBook.Models.Post>
-
 <div class="col">
     <div class="col-md-2">
         <div class="">
@@ -21,9 +19,9 @@
             else
             {
                 <br />
-                    <div>
-                        <img class="img" src="http://paidtoblog.co/wp-content/themes/genesis-sample/images/icons/exclusive-articles.png" alt="" style="vertical-align:text-bottom">
-                    </div>
+                <div>
+                    <img class="img" src="http://paidtoblog.co/wp-content/themes/genesis-sample/images/icons/exclusive-articles.png" alt="" style="vertical-align:text-bottom">
+                </div>
                     <a class="btn btn-primary" href="http://localhost:49674/Account/Register">Нямаш профил?<br />Присъидини се към нас</a>
             }
         </div>
@@ -37,17 +35,14 @@
     @foreach (var post in Model)
             {
         <article class="post col-md-6 col-lg-offset-2">
-            <h2 class="title">@post.Title</h2>
+            <h2 class="title">
+                @Html.ActionLink(@post.Title, "Details", "Posts", new { id = post.Id }, null)
+            </h2>
+            <div class="body">@Html.Raw(post.Body)</div>
             <div class="about">
-                Публикувано
-                @if (post.Author != null)
-                {
-                    @:от
-                    <i>@post.Author.Email (@post.Author.FullName)</i>
-                }
+                <p>Публикувано от: @post.Author.UserName.ToString()</p>
                 на <i>@post.Date</i>
             </div>
-            <div class="body">@Html.Raw(post.Body)</div>
         </article>
     }
 
@@ -68,7 +63,7 @@
             <br />
             <a href="http://www.box.bg/ads/www/delivery/ck.php?oaparams=2__bannerid=2493__zoneid=84__cb=0789ca00c9__oadest=http%3A%2F%2Fwww.jobs.bg%2Fpremium_jobs.php%3Farea%3Dinnovation%26r%3D50" target="_blank"><img src="http://www.box.bg/ads/www/images/29d8439ac9e37c5df07e2d53cc5e56c4.jpg" width="300" height="250" alt="" title="" border="0"></a>
         </div>
-        
+
     </div>
 </div>
 

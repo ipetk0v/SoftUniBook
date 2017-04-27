@@ -28,9 +28,9 @@ namespace SoftUniBook.Models
         
         [Display(Name = "Дата")]
         public DateTime Date { get; set; }
-
+ 
         public string AuthorId { get; set; }
-        public ApplicationUser Author { get; set; }
+        public virtual ApplicationUser Author { get; set; }
         public bool IsAuthor(string authorId)
         {
             return this.AuthorId == authorId;

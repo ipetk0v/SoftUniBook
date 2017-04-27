@@ -66,7 +66,6 @@ namespace SoftUniBook.Controllers
             };
             if (ModelState.IsValid)
             {
-
                 db.Posts.Add(post);
 
                 try
@@ -165,7 +164,6 @@ namespace SoftUniBook.Controllers
            
             return isAdmin || isAuthor;
         }
-        // dai da tyka li si
 
     }
 }
