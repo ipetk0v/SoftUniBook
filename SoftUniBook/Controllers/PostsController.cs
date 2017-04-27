@@ -3,7 +3,6 @@ using System.Linq;
 using System.Net;
 using System.Web.Mvc;
 using SoftUniBook.Models;
-using SoftUniBook.Models;
 using Microsoft.AspNet.Identity;
 using SoftUniBook.Models.BindingModels;
 using System;

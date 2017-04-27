@@ -2,7 +2,6 @@
 using System.Linq;
 using System.Web.Mvc;
 using System.Data.Entity;
-using SoftUniBook.Models;
 using System.Collections.Generic;
 
 namespace SoftUniBook.Controllers
@@ -14,12 +13,14 @@ namespace SoftUniBook.Controllers
         {
             this.db = new ApplicationDbContext();
         }
+
         public ActionResult Index()
         {
 
             var post = db.Posts.OrderByDescending(p => p.Date).Take(6);
             return View(post.ToList());
         }
+
         [HttpGet]
         public ActionResult Search(string postName)
         {

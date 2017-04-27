@@ -16,6 +16,12 @@ namespace SoftUniBook.Models
 
         public ICollection<Post> Posts { get; set; }
 
+        public int Age { get; set; }
+
+        public string AdditionalInformation { get; set; }
+
+        public string Gender { get; set; }
+
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
             var userIdentity = await manager.CreateIdentityAsync(this, DefaultAuthenticationTypes.ApplicationCookie);
