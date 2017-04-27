@@ -78,7 +78,7 @@ namespace SoftUniBook.Controllers
                 {
                     Console.WriteLine();
                 }
-                return RedirectToAction("Index");
+                return RedirectToAction("Profile", "Manage");
             }
 
             return View(post);
