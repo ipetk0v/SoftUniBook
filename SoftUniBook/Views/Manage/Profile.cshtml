@@ -14,7 +14,7 @@
     <dd>
         @if (User.Identity.GetUserName() != null)
         {
-            var imgUrl = Url.Content("~/Content/Pics/" + User.Identity.GetUserName() + ".png") + "?time=" + DateTime.Now.ToString();
+            var imgUrl = Url.Content("~/Content/Pics/" + User.Identity.GetUserName() + ".png");
             <div class="upimage">
                 <div class="accimg">
                     <img src="@imgUrl" height="250" width="250" />
